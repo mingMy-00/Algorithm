@@ -1,38 +1,33 @@
 import java.util.*;
 class Solution {
     public int solution(int[] ingredient) {
-        
-        int answer = 0;
-        ArrayList<String> str = new ArrayList<String>();
-        String strArr = "";
-        
-        for(int i = 0; i < ingredient.length; i ++) {
-            switch(ingredient[i]) {
-                case 1 : str.add("빵");   break;
-                case 2 : str.add("야채"); break;
-                case 3 : str.add("고기"); break;
-            }
-        }
-        
-        ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
-
-        for(int i = 0; i <= (str.size() - 4); i++) { 
-            arr.add(new ArrayList<String>()); // ArrayList<String>를 초기화하고 추가
-            
-            for(int j = i; j < (i + 4); j++) {
-                arr.get(i).add(str.get(j));
-            }
-            
-            strArr = "";
-            for(int a = 0; a < 4; a++) {
-                strArr += arr.get(i).get(a);   
-                if(strArr.equals("빵야채고기빵")) {
-                    answer++;
-                }
-            }
-        }
-
-        return answer;
+       //빵 1 , 야채 2, 고기 3
        
+       //Stack 선언
+       
+        //변수 선언
+        Stack<Integer> ham = new Stack<>();
+        int sz = 0;
+        int answer = 0;
+        
+       for(int i = 0; i < ingredient.length; i++) {
+           ham.push(ingredient[i]);
+           if(ham.size() >= 4) {
+               sz = ham.size();
+               if(ham.get(sz - 1) == 1 
+                   && ham.get(sz - 2) == 3 
+                   && ham.get(sz - 3) == 2 
+                   && ham.get(sz - 4) == 1 )  {
+
+                   answer++;
+                   ham.pop();
+                   ham.pop();
+                   ham.pop();
+                   ham.pop();
+               }
+            }
+        }
+                
+        return answer;
     }
 }
