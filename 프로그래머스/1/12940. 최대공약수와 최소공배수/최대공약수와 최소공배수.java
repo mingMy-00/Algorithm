@@ -2,19 +2,29 @@ import java.util.*;
 class Solution {
     public int[] solution(int n, int m) {
         
-        int max = Math.max(n,m);
+        int[] answer = {};
         
-        int min = Math.min(n,m);
+        ArrayList<Integer> nn = new ArrayList<>();
+        ArrayList<Integer> mm = new ArrayList<>();
         
-        while(min != 0) {
-            int r = max % min;
-            max = min;
-            min = r;
+        //최대 공약수 구하기 
+        for(int i = 1; i <= n; i++) {
+            if(n % i == 0) {
+                nn.add(i);
+            }
         }
         
-        int gcd = n * m / max;
+        for(int i = 1; i <= m; i++) {
+            if(m % i == 0) {
+                nn.add(i);
+            }
+        }
         
-        int[] answer = {max, gcd};
+        for(int nnn : nn) {
+            System.out.println(nnn);
+        }
+        
+        
         return answer;
     }
 }
