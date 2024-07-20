@@ -27,9 +27,6 @@ class Solution {
             }
         }
         
-        //System.out.println(map.get(1));
-        List<Integer> arr = new ArrayList<>();
-        
         //4. 가장 높은 점수 구하기 
         int maxValue = 0;
         for (int i = 1; i <= map.size(); i++) {
@@ -37,13 +34,16 @@ class Solution {
                 maxValue = map.get(i);
             }
         }
-        
+
+        //5. 가장 높은 점수와 일치하는 사람의 키값 추가
+        List<Integer> arr = new ArrayList<>();
         for(int i = 0; i < map.size(); i++) {
             if(map.get(i+1) == maxValue) {
                 arr.add(i+1);
             }
         }
-        
+
+        //6. 배열 값으로 넘기기
         int[] answer = arr
             .stream()
             .mapToInt(Integer::intValue)
