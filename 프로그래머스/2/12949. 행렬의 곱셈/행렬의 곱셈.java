@@ -1,6 +1,5 @@
 class Solution {
     public int[][] solution(int[][] arr1, int[][] arr2) {
-        //완전탐색 같긴함  !! 
     
     //1. 변수명 생성 
     int le1 = arr1.length;    //행의 길이 만큼 반복
