@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Stack;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 public class Main {   
 public static void main(String[] args) throws IOException {
@@ -11,17 +12,17 @@ public static void main(String[] args) throws IOException {
 
     for(int i = 0; i < N; i++) {
 
-      String s = br.readLine();
-      Stack<Character> st = new Stack<>();
+      char[] chars = br.readLine().toCharArray();
+      Deque<Character> dq = new ArrayDeque<>();
 
-      for(int j =0; j <s.length(); j++) {
-          if(st.size() > 0 && st.peek() == s.charAt(j)) {
-                st.pop();
+      for(char c : chars) {
+          if(dq.size() > 0 && dq.peek() == c) {
+              dq.pop();
           }else {
-            st.push(s.charAt(j));
+              dq.push(c);
           }
       }
-      if(st.isEmpty()) {
+      if(dq.isEmpty()) {
         cnt++;
       }
     }
