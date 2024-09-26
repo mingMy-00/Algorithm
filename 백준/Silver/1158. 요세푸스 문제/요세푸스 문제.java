@@ -27,15 +27,17 @@ public class Main {
       index = (index + K -1 ) % people.size();
       YosepList.add(people.remove(index));
     }
-    System.out.print("<");
+    StringBuilder sb = new StringBuilder();
+    sb.append("<");
 
     for(int i = 0 ; i < YosepList.size(); i++) {
       if (i == YosepList.size() - 1) {
-        System.out.print(YosepList.get(i));
+        sb.append(YosepList.get(i));
       } else {
-        System.out.print(YosepList.get(i) + ", ");
+        sb.append(YosepList.get(i)).append(", ");
       }
     }
-    System.out.print(">");
+    sb.append(">");
+    System.out.println(sb);
   }
  }
