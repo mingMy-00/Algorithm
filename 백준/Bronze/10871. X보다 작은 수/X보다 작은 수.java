@@ -10,20 +10,16 @@ import java.util.List;
 			int N = Integer.parseInt(st.nextToken());
 			int X = Integer.parseInt(st.nextToken());
 
-			String[] arr = br.readLine().split(" ");
-			ArrayList<Integer> list = new ArrayList<>();
-			for(int i = 0 ; i < N ; i++) {
-				if(Integer.parseInt(arr[i]) < X) {
-					list.add(Integer.parseInt(arr[i]));
-				}
-			}
+			st = new StringTokenizer(br.readLine());
+			StringBuilder sb = new StringBuilder();  
 
-			for(int i = 0; i < list.size(); i++ ) {
-                if(i != list.size() - 1) {
-                    System.out.print(list.get(i) + " ");
-                }else {
-                    System.out.print(list.get(i));
+			for(int i = 0 ; i < N ; i++) {
+                int num = Integer.parseInt(st.nextToken());
+                if(num < X) {
+                    sb.append(num).append(" ");
                 }
 			}
-		}
+            System.out.println(sb.toString().trim());
+
+        }
 	}
