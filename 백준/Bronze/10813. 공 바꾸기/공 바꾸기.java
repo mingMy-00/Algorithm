@@ -14,16 +14,18 @@ public class Main {
        
         for(int k = 0; k < M; k ++) {
             BasketArr = br.readLine().split(" ");
-            int num1 = Integer.parseInt(BasketArr[0]) - 1;
-            int num2 = Integer.parseInt(BasketArr[1]) - 1;
-            int temp = basket[num1];
-            basket[num1] = basket[num2];
-            basket[num2] = temp;
+            int idx1 = Integer.parseInt(BasketArr[0]) - 1;
+            int idx2 = Integer.parseInt(BasketArr[1]) - 1;
+            int temp = basket[idx1];
+            basket[idx1] = basket[idx2];
+            basket[idx2] = temp;
         }
       
+        StringBuilder sb = new StringBuilder();
         for(int arr : basket) {
-            System.out.print(arr + " ");
+            sb.append(arr + " ");
         }
         
+        System.out.println(sb.toString().trim());
     }
 }
