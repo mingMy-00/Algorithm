@@ -17,12 +17,8 @@ public class Main {
                     count++;
                 }
             }
-            arr[i] = sb.toString();
-            sb = new StringBuilder();
+            sb.append("\n");
         }
-        
-        for(int i = 0; i < n; i++) {
-            System.out.println(arr[i]); 
-        }
+        System.out.println(sb.toString());
     }
 }
