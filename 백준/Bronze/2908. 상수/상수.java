@@ -3,15 +3,12 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] strArr = br.readLine().split(" ");
-        int[] intArr = new int[2];
+        StringBuilder str1 = new StringBuilder();
+        StringBuilder str2 = new StringBuilder();
         
-        for(int i =0; i < 2; i++) {
-             String s = "";
-             for(int j =2; j >= 0; j--) {
-                  s += strArr[i].charAt(j);
-             }
-             intArr[i] = Integer.parseInt(s);
-        }
-        System.out.println(Math.max(intArr[0] , intArr[1]));
+        str1.append(strArr[0]);
+        str2.append(strArr[1]);
+        
+        System.out.println(Math.max(Integer.parseInt(str1.reverse().toString()) , Integer.parseInt(str2.reverse().toString())));
     }
 }
