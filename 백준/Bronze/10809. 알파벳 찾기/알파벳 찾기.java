@@ -8,11 +8,7 @@ public class Main {
 			StringBuilder sb = new StringBuilder();
 
 			for(char c : alphabet) {
-				if(s.contains(String.valueOf(c))) {
 					sb.append(s.indexOf(c) + " ");
-				}else {
-					sb.append("-1" + " ");
-				}
 			}
 
 			System.out.println(sb.toString());
