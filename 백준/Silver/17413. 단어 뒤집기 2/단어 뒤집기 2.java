@@ -14,19 +14,13 @@ public class Main {
             
             if(c == '<') {
                 isTag = true;
-                if(!st.isEmpty()) {
-                    while(!st.isEmpty()) {
-                        sb.append(st.pop());
-                    }
-                }
+                stackPop(st, sb);
                 sb.append(c);
             }else if(c =='>') {
                 isTag = false;
                 sb.append(c);
             }else if(c == ' ') {
-                while(!st.isEmpty()) {
-                      sb.append(st.pop());
-                }
+                stackPop(st, sb);
                 sb.append(c);
             }else {
                 if(isTag) {
@@ -36,15 +30,17 @@ public class Main {
                 }
             }
         }
-        
-        if(!st.isEmpty()) {
-            while(!st.isEmpty()) {
-                sb.append(st.pop());
-            }
-        }
-        
-       System.out.println(sb);
+       
+        stackPop(st, sb);
+        System.out.println(sb);
   
     }
+    
+    private static void stackPop(Stack<Character> st, StringBuilder sb) {
+        while(!st.isEmpty()) {
+                      sb.append(st.pop());
+        }
+    }
+    
     
 }
